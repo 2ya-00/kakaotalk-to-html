@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카톡 대화 로그 변환기</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+
+<body>
+  <div class="app">
+    <div class="top-bar">
+      <input type="file" id="fileInput" accept=".txt">
+      <label>기간:</label>
+      <div id="dpStart"></div>
+      <span class="sep">~</span>
+      <div id="dpEnd"></div>
+      <div class="cutoff-wrap">
+        <label>일자 시작 시각(0시~23시):</label>
+        <input type="number" id="cutoffHour" value="6" min="0" max="23">
+        <label>시</label>
+      </div>
+      <button class="btn" onclick="applyFilter()">불러오기</button>
+    </div>
+
+    <div class="main">
+      <div class="sidebar">
+        <div class="sidebar-header">참가자 설정</div>
+        <div id="participantList">
+          <div class="empty-hint" style="padding:20px 8px;font-size:12px">파일을 불러오면<br>여기에 표시됩니다</div>
+        </div>
+        <button class="btn sidebar-apply" onclick="applySettings()">적용</button>
+      </div>
+      <div class="pane">
+        <div class="pane-header">
+          <span>편집</span>
+          <span id="msgCount"></span>
+        </div>
+        <div class="pane-body" id="editPane">
+          <div class="empty-hint">txt 파일을 선택하고 [불러오기]를 누르세요</div>
+        </div>
+      </div>
+      <div class="pane">
+        <div class="pane-header"><span>미리보기 — 블로그</span></div>
+        <div class="pane-body blog-preview" id="previewPane">
+          <div class="empty-hint">편집창에서 작업하면 여기에 반영됩니다</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="output-bar">
+      <button class="btn primary" onclick="copyHTML()">HTML 코드 복사</button>
+      <button class="btn" onclick="downloadHTML()">HTML 다운로드</button>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/DatePicker.js"></script>
+  <script>
+    window._dpStart = new DatePicker('dpStart');
+    window._dpEnd = new DatePicker('dpEnd');
+  </script>
+</body>
+
+</html>

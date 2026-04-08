@@ -1,0 +1,551 @@
+/* ============================
+   카카오톡 대화 백업 - 스타일
+   ============================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* ---- 레이아웃 ---- */
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+/* ---- 상단 컨트롤 바 ---- */
+.top-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 0.5px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.top-bar input[type="file"] {
+  font-size: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* dp__ / tp__ 스타일은 DatePicker.js · TimePicker.js 가 자동 주입 */
+/* 이 프로젝트 전용 입력 필드 크기 조정 */
+.dp__input {
+  font-size: 14px;
+  padding: 4px 28px 4px 8px;
+  border: 0.5px solid #ccc;
+  border-radius: 7px;
+  background: #fff;
+  color: #1a1a1a;
+  width: 130px;
+}
+
+.top-bar label {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.sep {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.cutoff-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cutoff-wrap input[type="number"] {
+  width: 52px;
+  font-size: 14px;
+  padding: 4px 6px;
+  border: 0.5px solid #ccc;
+  border-radius: 7px;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+/* ---- 버튼 ---- */
+.btn {
+  padding: 5px 14px;
+  font-size: 14px;
+  border: 0.5px solid #bbb;
+  border-radius: 7px;
+  background: transparent;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn:hover {
+  background: #f0f0f0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.primary {
+  background: #e8f0fe;
+  color: #1a56c4;
+  border-color: #93b4f0;
+}
+
+.btn.primary:hover {
+  background: #d4e3fc;
+}
+
+/* ---- 편집/미리보기 영역 ---- */
+.main {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+  height: calc(90vh - 50px);
+}
+
+/* ---- 사이드바 ---- */
+.sidebar {
+  border: 0.5px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: inherit;
+}
+
+.sidebar-header {
+  padding: 8px 12px;
+  border-bottom: 0.5px solid #eee;
+  font-size: 14px;
+  color: #888;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.sidebar #participantList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.sidebar .participant-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+
+.sidebar .participant-row:last-child {
+  border-bottom: none;
+}
+
+.sidebar .participant-row .orig {
+  font-size: 11px;
+  color: #aaa;
+  min-width: unset;
+}
+
+.sidebar .participant-row input[type="text"] {
+  width: 100%;
+}
+
+.sidebar .participant-row .cha-input {
+  width: 100%;
+}
+
+.sidebar .participant-row input[type="color"] {
+  width: 100%;
+  height: 28px;
+  border: 0.5px solid #ccc;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.sidebar-apply {
+  margin: 8px;
+  flex-shrink: 0;
+}
+
+.pane {
+  border: 0.5px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+
+}
+
+.pane-header {
+  padding: 8px 12px;
+  border-bottom: 0.5px solid #eee;
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.pane-header #msgCount {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.pane-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px;
+  height: inherit;
+
+}
+
+/* ---- 편집창 요소 ---- */
+.day-block {
+  margin-bottom: 6px;
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  margin-bottom: 4px;
+}
+
+.day-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  flex: 1;
+}
+
+.toggle-btn {
+  width: 18px;
+  height: 18px;
+  border: 0.5px solid #bbb;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  padding: 0;
+}
+
+.toggle-btn:hover {
+  background: #f0f0f0;
+}
+
+/* 메시지 묶음 */
+.msg-group {
+  padding: 5px 7px;
+  border-radius: 7px;
+  cursor: grab;
+  border: 0.5px solid transparent;
+  margin-bottom: 4px;
+  user-select: none;
+  transition: border-color 0.1s, background 0.1s;
+  contain: content;
+}
+
+.msg-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.msg-group:hover {
+  border-color: #e0e0e0;
+  background: #f8f8f8;
+}
+
+.msg-group.dragging {
+  opacity: 0.35;
+  cursor: grabbing;
+}
+
+.msg-group.drag-over {
+  border-color: #93b4f0;
+  background: #e8f0fe;
+}
+
+.msg-group.excluded {
+  opacity: 0.3;
+}
+
+.msg-sender {
+  font-size: 11px;
+  font-weight: 600;
+  width: 72px;
+  flex-shrink: 0;
+  line-height: 1.4;
+  padding-top: 2px;
+}
+
+.msg-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.msg-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.msg-line.excluded-msg .msg-text,
+.msg-line.excluded-msg .msg-time {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+.msg-text {
+  font-size: 14px;
+  line-height: 1.55;
+  flex: 1;
+  outline: none;
+  cursor: text;
+  padding: 1px 3px;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.msg-text:focus {
+  background: #f0f4ff;
+  outline: 0.5px solid #93b4f0;
+}
+
+.msg-time {
+  font-size: 11px;
+  color: #bbb;
+  white-space: nowrap;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.group-toggle {
+  flex-shrink: 0;
+  align-self: center;
+  margin-left: 2px;
+}
+
+.mini-btn {
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 0.5px solid #ddd;
+  border-radius: 7px;
+  background: transparent;
+  cursor: pointer;
+  color: #888;
+  transition: background 0.1s;
+}
+
+.mini-btn:hover {
+  background: #f0f0f0;
+}
+
+/* ---- 빈 상태 안내 ---- */
+.empty-hint {
+  color: #bbb;
+  font-size: 14px;
+  text-align: center;
+  padding: 48px 16px;
+}
+
+/* ---- 로딩 ---- */
+.loading-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #aaa;
+  font-size: 14px;
+  padding: 48px 16px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ddd;
+  border-top-color: #93b4f0;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- 하단 출력 바 ---- */
+.output-bar {
+  display: flex;
+  gap: 8px;
+}
+
+/* ============================
+   블로그 미리보기 스타일
+   ============================ */
+.blog-preview {
+  padding: 16px 20px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #1a1a1a;
+}
+
+.blog-date-divider {
+  text-align: center;
+  margin: 20px 0 14px;
+  position: relative;
+}
+
+.blog-date-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e8e8e8;
+}
+
+.blog-date-divider span {
+  position: relative;
+  background: #fff;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #888;
+  font-weight: 500;
+}
+
+.blog-group {
+  margin-bottom: 14px;
+}
+
+.blog-sender {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.blog-sender .time-tag {
+  font-size: 14px;
+  color: #bbb;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+.blog-text {
+  font-size: 15px;
+  color: #222;
+  margin: 0;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.participant-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.participant-row .orig {
+  font-size: 14px;
+  min-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888;
+}
+
+.participant-row input[type="text"] {
+  flex: 1;
+  font-size: 14px;
+  padding: 4px 8px;
+  border: 0.5px solid #ccc;
+  border-radius: 7px;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.participant-row select {
+  width: 60px;
+  font-size: 14px;
+  padding: 4px 4px;
+  border: 0.5px solid #ccc;
+  border-radius: 7px;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+/* 미리보기 테이블 cha 클래스 — 색상은 generateHTML() style 태그로 동적 적용 */
+.blog-preview .cha1,
+.blog-preview .cha2 {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.blog-preview table {
+  border-collapse: collapse;
+}
+
+.blog-preview td {
+  padding: 4px 8px;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ============================
+   반응형
+   ============================ */
+@media (max-width: 700px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar {
+    flex-wrap: wrap;
+  }
+}
